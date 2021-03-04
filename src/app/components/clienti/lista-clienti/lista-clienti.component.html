@@ -1,0 +1,10 @@
+<div>
+    <h1>Lista Clienti</h1>
+    <ul>
+      <li *ngFor="let cliente of clienti">
+        {{cliente.nome}} {{cliente.cognome}}
+        <button (click)="rimuoviCliente()">Rimuovi</button>
+        <a routerLink="/Biblioteca/Cliente/Modifica?idCliente={{cliente.idCliente}}">Modifica</a>
+      </li>
+    </ul>
+  </div>
