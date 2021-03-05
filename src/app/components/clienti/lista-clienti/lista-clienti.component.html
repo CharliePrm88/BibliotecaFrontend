@@ -3,7 +3,7 @@
     <ul>
       <li *ngFor="let cliente of clienti">
         {{cliente.nome}} {{cliente.cognome}}
-        <button (click)="rimuoviCliente()">Rimuovi</button>
+        <button (click)="rimuoviCliente(cliente.idCliente)">Rimuovi</button>
         <a routerLink="/Biblioteca/Cliente/Modifica?idCliente={{cliente.idCliente}}">Modifica</a>
       </li>
     </ul>

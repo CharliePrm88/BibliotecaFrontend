@@ -1,0 +1,31 @@
+<form>
+    <label for="cf">Codice Fiscale</label>
+    <input
+      type="text"
+      class="form-control"
+      id="codiceFiscale"
+      required
+      [(ngModel)]="nuovo.codiceFiscale"
+      name="cf"
+    />
+ 
+    <label for="nome">Nome</label>
+    <input
+      class="form-control"
+      id="nome"
+      required
+      [(ngModel)]="nuovo.nome"
+      name="nome"
+    />
+ 
+      <label for="cognome">Cognome</label>
+      <input
+        class="form-control"
+        id="cognome"
+        required
+        [(ngModel)]="nuovo.cognome"
+        name="cognome"
+      />
+      <button (click)="salvaCliente()" class="btn btn-success">Inserisci il cliente!</button>
+    </form>
+  

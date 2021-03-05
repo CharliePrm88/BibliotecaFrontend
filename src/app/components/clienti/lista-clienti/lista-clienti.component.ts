@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import {Clienti} from 'src/app/models/clienti.model'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-clienti',
@@ -13,7 +14,9 @@ export class ListaClientiComponent implements OnInit {
   clienti?: Clienti[];
   clienteM!: Clienti;
  
-   constructor(private cs:ClienteService) { }
+   constructor(private cs:ClienteService,
+    private route: ActivatedRoute,
+    private router: Router) { }
  
    ngOnInit(): void {
      this.listaClienti();
@@ -41,7 +44,15 @@ export class ListaClientiComponent implements OnInit {
        });;
    }
  
-   rimuoviCliente():void{
-     this.cs.cancella(this.clienteM?.idCliente)
+   rimuoviCliente(idCliente:number):void{
+     this.cs.cancella(idCliente).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      },
+      ()=> window.location.reload()
+      );
    }
 }

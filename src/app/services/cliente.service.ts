@@ -23,7 +23,10 @@ export class ClienteService {
     return this.http.post(`${baseUrl}/Inserisci`,c);
   }
   cancella(idCliente:number){
-    return this.http.delete(`${baseUrl}/Cancella?idCliente=${idCliente}`)
+    return this.http.delete(`${baseUrl}/Cancella?idCliente=${idCliente}`, {
+      headers: {
+        'content-Type': 'application/json',
+      },});
   }
   modifica(c:Clienti){
     return this.http.put(`${baseUrl}/Modifica`,c);
